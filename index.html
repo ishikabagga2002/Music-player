@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Music PLayer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> ">
+    <link rel="icon" href="music logo.png">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1 class="text-center text-white text"><u>Music Player</u></h1>
+       <div class="box">
+        <div class="p-5 img">
+            <img src="images/a.jpg" alt="" height="200px" width="200px" id="image">
+        </div>
+        <div class="text1">
+          <h5 id="song">Hello Hunny Bunny</h5>
+          <h6 id="singer">Amitabh Bhattacharya, Amit Trivedi</h6>
+        </div>
+       <div>
+        <audio src="audios/a.mp3" id="audio"></audio>
+        </div>
+        <div>
+            <button class="btn btn-danger prev" id="prev" onclick="prevfun()"><i class="fa-solid fa-backward"></i></button>
+            <button class="btn btn-danger play" id="playpause" onclick="playp()"><i class="fa-solid fa-play"></i></button>
+            <button class="btn btn-danger stop" id="stopbtn" onclick="stopfun()"><i class="fa-solid fa-stop"></i></button>
+            <button class="btn btn-danger next" id="nextbtn" onclick="nextfun()"><i class="fa-solid fa-forward"></i></button>
+        </div>
+       </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+       var image=["images/a.jpg","images/b.jpg","images/c.jpg","images/d.jpg","images/e.jpg"];
+       var aud=["audios/a.mp3","audios/b.mp3","audios/c.mp3","audios/d.mp3","audios/e.mp3"];
+       var song=["Hello Hunny Bunny","Nadaniyaan","Kamlee","Safari","Players"];
+       var singer=["Amitabh Bhattacharya, Amit Trivedi","Akshath","SARRB,Starboy X","Serena","Badshah,Karan Aujla,Devika Badyal"];
+
+       
+       const songs=document.getElementById("song");
+       const singers=document.getElementById("singer");
+       const pic=document.getElementById("image");
+        const audioPlayer=document.getElementById("audio");
+        const playpause=document.getElementById("playpause");
+        const stopbtn=document.getElementById("stopbtn");
+       
+       
+        var i=0;
+        function playp()
+        {
+            if(audioPlayer.paused)
+        {
+            audioPlayer.play();
+            playpause.innerHTML='<i class="fa-solid fa-pause"></i>';
+        }
+        else{
+            audioPlayer.pause();
+            playpause.innerHTML='<i class="fa-solid fa-play"></i>';
+        }
+        }
+         function stopfun()
+         {
+            audioPlayer.pause();
+            playpause.innerHTML='<i class="fa-solid fa-play"></i>';
+            audioPlayer.currentTime=0;
+         }
+         function prevfun()
+         {
+          audioPlayer.src=aud[i];
+          pic.src=image[i];
+          songs.innerHTML=song[i];
+          singers.innerHTML=singer[i];
+          audioPlayer.play();
+          i--;
+          playpause.innerHTML='<i class="fa-solid fa-pause"></i>';
+          if(i<0)
+         {
+           i=4;
+         }
+         }
+         function nextfun()
+         {
+          pic.src=image[i];
+          audioPlayer.src=aud[i];
+          songs.innerHTML=song[i];
+          singers.innerHTML=singer[i];
+          audioPlayer.play();
+          i++;
+          playpause.innerHTML='<i class="fa-solid fa-play"></i>';
+          if(i==5)
+            {
+              i=0;
+            }
+          
+         }
+
+    </script>
+  </body>
+</html>
