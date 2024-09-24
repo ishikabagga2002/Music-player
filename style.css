@@ -1,0 +1,45 @@
+body{
+    background-color:#71343E;
+}
+.text{
+    font-family: monotype corsiva;
+    font-size:50px;
+}
+
+.box{
+    height:500px;
+    width:500px;
+    border:1px solid;
+    margin:50px auto;
+    background-color:#EDA5B1;
+    border-radius:10px;
+    
+}
+.img{
+    margin-left:90px;
+    margin-top:40px;
+}
+.text1{
+    margin-left:140px;
+    font-family: calibri;
+}
+
+
+
+
+.play{
+   
+    background-color: red;
+}
+.stop{
+    background-color: red;
+}
+.prev{
+    background-color: red;
+    margin-left:150px;
+
+
+}
+.next{
+    background-color: red;
+}
